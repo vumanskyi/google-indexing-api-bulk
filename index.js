@@ -1,7 +1,19 @@
+const defaultFileName = 'service_account.json';
 const fs = require('fs');
-var request = require('request');
-var { google } = require('googleapis');
-var key = require('./service_account.json');
+const request = require('request');
+const { google } = require('googleapis');
+const argv = require('minimist')(process.argv.slice(2));
+let usedName = defaultFileName;
+
+if (argv?.account) {
+  if (!fs.existsSync(argv.account)) {
+    throw new Error('File ' + argv.account + ' does not exist');
+  }
+  usedName = argv.account;
+}
+
+var key = require('./' + usedName);
+
 
 const jwtClient = new google.auth.JWT(
   key.client_email,

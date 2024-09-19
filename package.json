@@ -11,6 +11,7 @@
   "dependencies": {
     "fs": "0.0.1-security",
     "googleapis": "^46.0.0",
+    "minimist": "^1.2.8",
     "request": "^2.88.0"
   }
 }
