@@ -40,3 +40,9 @@ Then...
 100 URLs per request batch
 
 200 URLs per day
+
+
+## Use specific service account
+```
+node index.js --account=some_specific_account.json
+```
